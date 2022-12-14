@@ -1,0 +1,13 @@
+---
+  - name: Add
+    hosts: all
+    gather_facts: yes
+    become: yes
+    become_user: root
+    become_method: sudo
+    tasks:
+      - name: Add User
+        user:
+          name: "{{ morpheus['customOptions']['user'] }}"
+          password: "Password!234"
+          state: present
